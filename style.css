@@ -1,0 +1,100 @@
+body {
+    width: 100%;
+    background-image: url(https://media.giphy.com/media/CIjXMxobcEnkI/giphy.gif);
+    background-size: cover;
+
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 15%;
+}
+
+#home {
+    margin: 20px;
+    padding: 0%;
+    font-family: 'Inconsolata', monospace;
+    font-size: 70px;
+    color: white;
+    
+}
+#search-input {
+    padding: 7px;
+    margin: 0 auto;
+    width: 30%;
+    border-radius: 5px;
+}
+.fa{
+    padding: 8px;
+}
+
+.fa-list{
+    padding: 6px;
+
+}
+button {
+    border-radius: 5px;
+    padding: 7px;
+
+}
+
+#footer {
+    text-align: center;
+    padding: 25px;
+    background-color: none;
+}
+
+.row {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+}    
+
+.card-body {
+    border: 3px solid black;
+    display: inline-block;
+    align-content: space-between;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+
+.card-title {
+    border: 3px solid orange;
+    background-color: orange;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#bio-image, 
+#bio-image-2, 
+#bio-image-3, 
+#bio-image-4,
+#bio-image-5 {
+    white-space: pre-wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.prev-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+.next-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+.home-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+
+.bottom-text {
+    background-color: orange;
+}
