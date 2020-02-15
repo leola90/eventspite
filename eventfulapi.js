@@ -75,7 +75,7 @@ $(document).ready(function() {
             var keywords = localStorage.getItem('keywords');
             
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startNext + "-" + endNext + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startNext + "-" + endNext + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
@@ -128,7 +128,7 @@ $(document).ready(function() {
             var keywords = localStorage.getItem('keywords');
 
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startLast + "-" + endLast + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startLast + "-" + endLast + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
