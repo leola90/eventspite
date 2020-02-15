@@ -12,9 +12,11 @@ $(document).ready(function() {
             var end = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 7}00`;
             var keywords = $("#search-input").val();
             localStorage.setItem('keywords', keywords);
+            
+            var area = window.app.location;
 
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ start + "-" + end + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ start + "-" + end + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
@@ -68,7 +70,7 @@ $(document).ready(function() {
             var keywords = localStorage.getItem('keywords');
             
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startNext + "-" + endNext + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ start + "-" + end + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
@@ -123,7 +125,7 @@ $(document).ready(function() {
             var keywords = localStorage.getItem('keywords');
 
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startLast + "-" + endLast + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ startLast + "-" + endLast + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
