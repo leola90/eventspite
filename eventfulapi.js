@@ -8,6 +8,7 @@ $(document).ready(function() {
             $("#search-input").hide();
             $("#footer").hide();
             $(".btn-search").hide();
+            $("#sub-text).hide();
          
             // the format requirement for the api date to work is yyyymm00dd00 - yyyymm00dd00
             // set the date (get the year), (get the month and if it's less than 10, add a 0), and (get the day and add two zeros)
@@ -178,6 +179,7 @@ $(document).ready(function() {
             $("#search-input").show();
             $("#footer").show();
             $(".btn-search").show();
+            $("#sub-text).show();
             $("#next-btn").hide();
             $("#previous-btn").hide();
             $("#reset-btn").hide();
