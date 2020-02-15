@@ -1,0 +1,115 @@
+body {
+    width: 100%;
+    background-image: url(https://media.giphy.com/media/CIjXMxobcEnkI/giphy.gif);
+    background-size: cover;
+
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20%;
+}
+
+#home {
+    margin: 20px;
+    padding: 0%;
+    font-family: 'Inconsolata', monospace;
+    font-size: 70px;
+    color:rgb(159, 148, 243);
+    animation-name: home;
+    animation-duration: 30s;
+    
+}
+#search-input {
+    padding: 7px;
+    margin: 0 auto;
+    width: 30%;
+    border-radius: 5px;
+}
+.fa{
+    padding: 8px;
+}
+
+@keyframes home {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    75%  {color: lawngreen;}
+    100% {color: green;}
+  }
+
+button {
+    border-radius: 5px;
+    padding: 7px;
+
+}
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background-color: none;
+}
+
+.row {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+}    
+
+.card-body {
+    border: 3px solid black;
+    display: inline-block;
+    align-content: space-between;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+
+.card-title {
+    border: 3px solid white;
+    background-color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#bio-image, 
+#bio-image-2, 
+#bio-image-3, 
+#bio-image-4,
+#bio-image-5 {
+    white-space: pre-wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.prev-btn {
+    margin-left: 30px;
+    background-color: white;
+}
+
+.next-btn {
+    margin-left: 30px;
+    background-color: white;
+}
+
+.home-btn {
+    margin-left: 30px;
+    background-color: white;
+}
+
+
+.bottom-text {
+    background-color: orange;
+}
+
+#sub-text {
+    margin-top: 3%;
+    color: white;
+    animation-name: home;
+    animation-duration: 30s;
+}
+
