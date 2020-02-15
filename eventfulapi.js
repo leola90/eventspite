@@ -1,20 +1,28 @@
 
 $(document).ready(function() {
-   
+  
+
     function userInput () {
         $(".btn-search").on("click", function(event) {
             $("#home").hide();
             $("#search-input").hide();
             $("#footer").hide();
             $(".btn-search").hide();
-           
+         
+            // the format requirement for the api date to work is yyyymm00dd00 - yyyymm00dd00
+            // set the date (get the year), (get the month and if it's less than 10, add a 0), and (get the day and add two zeros)
             var start = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate()}00`;
             var end = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 7}00`;
+            //set the keywords to search input and then store it to local storage
             var keywords = $("#search-input").val();
             localStorage.setItem('keywords', keywords);
+            //window.app.location is set to global so it can be defined from another script.  Then save it to localstorage
+            var area = window.app.location;
+            
 
+            console.log(area);
             var settings = {
-                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ start + "-" + end + "&sort_direction=ascending&keywords=" + keywords + "&location=houston",
+                url: "https://api.eventful.com/json/events/search?&app_key=3PCFhKqWmgV9xscv&date="+ start + "-" + end + "&sort_direction=ascending&keywords=" + keywords + "&location=" + area,
                 method: "GET",
                 timeout: 0,
             };
@@ -25,7 +33,6 @@ $(document).ready(function() {
                 // Create a for loop to dynamically inject the elements to the page
                 for(var ev of response.events.event){
                 //Creating variables to store data
-                var imgURL = "https://placehold.it/100x100";
                 var title = ev.title;
                 var city = ev.city_name;
                 var state = ev.region_name;
@@ -37,13 +44,12 @@ $(document).ready(function() {
                 var template = `
                 <div class="card-body">
                     <div class="card-title" id="header">${title}</div>
-                    <div class="card-img-top" id="bio-image"></div>
-                    <img src="${imgURL}"/>
                     <div class="bottom-text"></div>
-                    <div id="date">${date}</div>
-                    <div id="location">${city}, ${state}</div>
-                    <a href="#" class="card-link" id="directions">${venueAddress}</a>
-                    <a href="#" class="card-link" id="siteURL">${venueName}</a>
+                    <div id="date">When: ${date}</div> 
+                    <br>
+                    <a href=${venueName} class="card-link" id="siteURL">Where: ${venueName}</a>
+                    <br><br>
+                    <a href=${venueAddress} class="card-link" id="directions">Location: ${venueAddress}, ${city}, ${state}</a>
                 </div>`;
 
                 // Append all this to row inside the container
@@ -64,7 +70,7 @@ $(document).ready(function() {
             $("#previous-btn").hide();
             $("#reset-btn").hide();
             var startNext = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 7}00`;
-            var endNext = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 7}00`;
+            var endNext = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 14}00`;
             var keywords = localStorage.getItem('keywords');
             
             var settings = {
@@ -80,7 +86,6 @@ $(document).ready(function() {
             // Create a for loop to dynamically inject the elements to the page
             for(var ev of response.events.event){
                 //Creating variables to store data
-                var imgURL = "https://placehold.it/100x100";
                 var title = ev.title;
                 var city = ev.city_name;
                 var state = ev.region_name;
@@ -90,16 +95,15 @@ $(document).ready(function() {
                 
                 // Call for a `` to attach my variables. In this case, I called for a var name template.
                 var template = `
-                    <div class="card-body">
+                <div class="card-body">
                     <div class="card-title" id="header">${title}</div>
-                    <div class="card-img-top" id="bio-image"></div>
-                    <img src="${imgURL}"/>
                     <div class="bottom-text"></div>
-                    <div id="date">${date}</div>
-                    <div id="location">${city}, ${state}</div>
-                    <a href="#" class="card-link" id="directions">${venueAddress}</a>
-                    <a href="#" class="card-link" id="siteURL">${venueName}</a>
-                    </div>`;
+                    <div id="date">When: ${date}</div> 
+                    <br>
+                    <a href=${venueName} class="card-link" id="siteURL">Where: ${venueName}</a>
+                    <br><br>
+                    <a href=${venueAddress} class="card-link" id="directions">Location: ${venueAddress}, ${city}, ${state}</a>
+                </div>`;
                 
                 // Append all this to row inside the container
                 $(".row").append(template);
@@ -119,7 +123,7 @@ $(document).ready(function() {
             $("#previous-btn").hide();
             $("#reset-btn").hide();
             var startLast = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() - 7}00`;
-            var endLast = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() + 7}00`;
+            var endLast = `${new Date().getFullYear()}${new Date().getMonth() + 1 < 10 ? '0':''}${new Date().getMonth() + 1}${new Date().getDate() - 13}00`;
             var keywords = localStorage.getItem('keywords');
 
             var settings = {
@@ -136,7 +140,6 @@ $(document).ready(function() {
                     // Create a for loop to dynamically inject the elements to the page
                     for(var ev of response.events.event){
                     //Creating variables to store data
-                    var imgURL = "https://placehold.it/100x100";
                     var title = ev.title;
                     var city = ev.city_name;
                     var state = ev.region_name;
@@ -148,13 +151,12 @@ $(document).ready(function() {
                     var template = `
                     <div class="card-body">
                         <div class="card-title" id="header">${title}</div>
-                        <div class="card-img-top" id="bio-image"></div>
-                        <img src="${imgURL}"/>
                         <div class="bottom-text"></div>
-                        <div id="date">${date}</div>
-                        <div id="location">${city}, ${state}</div>
-                        <a href="#" class="card-link" id="directions">${venueAddress}</a>
-                        <a href="#" class="card-link" id="siteURL">${venueName}</a>
+                        <div id="date">When: ${date}</div> 
+                        <br>
+                        <a href=${venueName} class="card-link" id="siteURL">Where: ${venueName}</a>
+                        <br><br>
+                        <a href=${venueAddress} class="card-link" id="directions">Location: ${venueAddress}, ${city}, ${state}</a>
                     </div>`;
     
                     // Append all this to row inside the container
