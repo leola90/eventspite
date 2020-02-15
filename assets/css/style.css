@@ -9,9 +9,8 @@ body {
     text-align: center;
 }
 .contanier {
- 
+    padding: 20%;
     margin: 0 auto;
-    padding: 15%;
 }
 
 #home {
@@ -24,21 +23,17 @@ body {
     animation-duration: 30s;
 }
 @keyframes home {
-    0%   {color: red;}
+    0%   {color: rgb(15, 187, 50);}
     25%  {color: yellow;}
     50%  {color: blue;}
-    75%  {color: lawngreen;}
-    100% {color: green;}
+    75%  {color: rgb(68, 5, 177);}
+    100% {color:red;}
   }  
 #search-input {
     padding: 7px;
     margin: 0 auto;
     width: 30%;
     border-radius: 5px;
-}
-.fa-list{
-    padding: 6px;
-
 }
 button {
     border-radius: 5px;
@@ -48,6 +43,64 @@ button {
 
 #footer {
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     margin: 0;
+}
+.row {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+}    
+
+.card-body {
+    border: 3px solid black;
+    display: inline-block;
+    align-content: space-between;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+
+.card-title {
+    border: 3px solid orange;
+    background-color: orange;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#bio-image, 
+#bio-image-2, 
+#bio-image-3, 
+#bio-image-4,
+#bio-image-5 {
+    white-space: pre-wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.prev-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+.next-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+.home-btn {
+    margin-left: 30px;
+    background-color: orange;
+}
+
+
+.bottom-text {
+    background-color: orange;
+}
+#sub-text {
+    margin-top: 3%;
+    color: white;
+    animation-name: home;
+    animation-duration: 30s;
+
+
 }
